@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Map</h1>
+    <div id="map"></div>
+
+    <script>
+        function initMap() {
+            // 초기 위치를 설정합니다.
+            const initialPosition = { lat: 37.7749, lng: -122.4194 };
+
+            // 지도를 생성하고 초기 위치로 설정합니다.
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: initialPosition,
+                zoom: 12,
+            });
+
+            // 초기 위치에 마커를 추가합니다.
+            new google.maps.Marker({
+                position: initialPosition,
+                map,
+                title: "San Francisco",
+            });
+        }
+    </script>
+    <!-- Google Maps API를 불러옵니다. -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+</html>
